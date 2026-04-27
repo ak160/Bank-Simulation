@@ -3,21 +3,21 @@
 **Author:** Aditya Kant 
 
 ## 📌 Project Overview
-[cite_start]This project is a Discrete Event Simulation (DES) designed to optimize the staffing configuration (Tellers, Helpdesk, and Relationship Managers) of a retail bank branch[cite: 9]. [cite_start]It acts as a "digital twin," meticulously tracking virtual customers from arrival to departure to optimize business and retail flow[cite: 10]. 
+This project is a Discrete Event Simulation (DES) designed to optimize the staffing configuration (Tellers, Helpdesk, and Relationship Managers) of a retail bank branch. It acts as a "digital twin," meticulously tracking virtual customers from arrival to departure to optimize business and retail flow. 
 
-[cite_start]Traditional staffing models often rely on steady-state averages that assume constant traffic and infinite customer patience, leading to severe understaffing during peak operational hours[cite: 11, 12]. [cite_start]This simulation demonstrates that minimizing daily operational expenses (OpEx) through reduced staffing is strategically flawed, as it incurs substantial opportunity costs via lost revenue from customer walkouts[cite: 13, 14].
+Traditional staffing models often rely on steady-state averages that assume constant traffic and infinite customer patience, leading to severe understaffing during peak operational hours. This simulation demonstrates that minimizing daily operational expenses (OpEx) through reduced staffing is strategically flawed, as it incurs substantial opportunity costs via lost revenue from customer walkouts.
 
 ## ⚙️ Methodology & Architecture
-[cite_start]The simulation was engineered using Python and the `simpy` framework[cite: 15]. [cite_start]It utilizes advanced probability models to mimic a real-world bank environment[cite: 18]:
+The simulation was engineered using Python and the `simpy` framework. It utilizes advanced probability models to mimic a real-world bank environment:
 
-* [cite_start]**The Arrival Process:** Customer arrivals are generated using a Non-Homogeneous Poisson Process (NHPP) via the Thinning Algorithm to simulate realistic traffic waves, factoring in day-of-week and time-of-day multipliers[cite: 40, 45, 46].
-* [cite_start]**System Architecture:** Modeled as a multi-server, multi-class queuing network with a Priority Queue Discipline, where 10% of customers are randomly designated as high-priority (VIPs)[cite: 35, 36].
-* [cite_start]**Service Time Distributions:** * **Tellers (60%):** Modeled with a Gamma distribution (expected time ~3 minutes)[cite: 49].
-  * [cite_start]**Helpdesk (25%):** Modeled with a Gamma distribution (expected time ~6 minutes)[cite: 50].
-  * [cite_start]**Relationship Managers (15%):** Modeled with a Lognormal distribution to capture the "long tail" of complex financial consultations[cite: 51].
+* **The Arrival Process:** Customer arrivals are generated using a Non-Homogeneous Poisson Process (NHPP) via the Thinning Algorithm to simulate realistic traffic waves, factoring in day-of-week and time-of-day multipliers.
+* **System Architecture:** Modeled as a multi-server, multi-class queuing network with a Priority Queue Discipline, where 10% of customers are randomly designated as high-priority (VIPs).
+* **Service Time Distributions:** * **Tellers (60%):** Modeled with a Gamma distribution (expected time ~3 minutes).
+  * **Helpdesk (25%):** Modeled with a Gamma distribution (expected time ~6 minutes).
+  * **Relationship Managers (15%):** Modeled with a Lognormal distribution to capture the "long tail" of complex financial consultations.
 * **Customer Psychology (Friction):**
-  * [cite_start]**Logistic Balking:** Customers evaluate the queue length upon arrival; their probability of joining decays logistically relative to personal tolerance[cite: 54, 55].
-  * [cite_start]**Weibull Reneging:** Once in the queue, a customer's patience limit is drawn from a Weibull distribution; if wait times exceed this limit, they abandon the queue[cite: 58].
+  * **Logistic Balking:** Customers evaluate the queue length upon arrival; their probability of joining decays logistically relative to personal tolerance.
+  * **Weibull Reneging:** Once in the queue, a customer's patience limit is drawn from a Weibull distribution; if wait times exceed this limit, they abandon the queue.
 
 ## 🚀 Installation & Setup
 
@@ -40,11 +40,4 @@
 
 ## 📊 Demo & Output Visualizations
 
-When you run the simulation, the analytics engine automatically evaluates a **Baseline Configuration** (Understaffed) versus an **Optimized Configuration** (Well-staffed + Priority Queue) and outputs the following visual analytics:
 
-1. [cite_start]**Traffic Heatmap (`1_traffic_heatmap.png`):** Validates the NHPP input model, displaying realistic banking traffic like Friday afternoon peaks and daily corporate lunch rushes[cite: 72, 73].
-2. **Queue Backlog (`2_queue_backlog.png`):** A line chart tracking the expected customers in queue. [cite_start]It shows how the baseline system collapses during midday stress, while the optimized system maintains stability[cite: 121, 123].
-3. [cite_start]**Wait Time Variance (`3_wait_time_violin.png`):** A violin plot demonstrating how the optimized system compresses wait time variance and prevents 15-minute Service Level Agreement (SLA) violations[cite: 122, 123].
-4. **Financial Impact (`4_financial_impact.png`):** A side-by-side bar chart showing the core business evaluation. [cite_start]It visualizes how spending a little more on salaries dramatically reduces the millions lost to high-value walkouts[cite: 179, 180].
-5. [cite_start]**Customer Walkouts (`6_customer_walkouts.png`):** Details the physical consequence of queue backlogs, showing the massive reduction in daily customer abandonment across all service tiers[cite: 151, 154].
-6. [cite_start]**Optimization Landscape (`5_optimization_landscape.png`):** A heatmap generated by the automated Grid Search evaluating the objective function across a matrix of configurations[cite: 204].

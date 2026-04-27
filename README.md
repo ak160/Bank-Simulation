@@ -38,7 +38,8 @@ The simulation was engineered using Python and the `simpy` framework. It utilize
    python bank_simulation.py
 
 
-##  Demo & Output Visualizations
+##  Demo 
 ![Demo](Plots/demo.png)
+Note: This demo is just to visualize the simulation !
 
 

@@ -23,7 +23,7 @@ The simulation was engineered using Python and the `simpy` framework. It utilize
 
 1. **Clone the repository:**
    ```bash
-   git clone [https://github.com/ak160/Bank-Simulation.git](https://github.com/ak160/Bank-Simulation.git)
+   git clone https://github.com/ak160/Bank-Simulation.git
    cd Bank-Simulation
    ```
 

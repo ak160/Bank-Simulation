@@ -2,12 +2,12 @@
 
 **Author:** Aditya Kant 
 
-## 📌 Project Overview
+##  Project Overview
 This project is a Discrete Event Simulation (DES) designed to optimize the staffing configuration (Tellers, Helpdesk, and Relationship Managers) of a retail bank branch. It acts as a "digital twin," meticulously tracking virtual customers from arrival to departure to optimize business and retail flow. 
 
 Traditional staffing models often rely on steady-state averages that assume constant traffic and infinite customer patience, leading to severe understaffing during peak operational hours. This simulation demonstrates that minimizing daily operational expenses (OpEx) through reduced staffing is strategically flawed, as it incurs substantial opportunity costs via lost revenue from customer walkouts.
 
-## ⚙️ Methodology & Architecture
+##  Methodology & Architecture
 The simulation was engineered using Python and the `simpy` framework. It utilizes advanced probability models to mimic a real-world bank environment:
 
 * **The Arrival Process:** Customer arrivals are generated using a Non-Homogeneous Poisson Process (NHPP) via the Thinning Algorithm to simulate realistic traffic waves, factoring in day-of-week and time-of-day multipliers.
@@ -19,7 +19,7 @@ The simulation was engineered using Python and the `simpy` framework. It utilize
   * **Logistic Balking:** Customers evaluate the queue length upon arrival; their probability of joining decays logistically relative to personal tolerance.
   * **Weibull Reneging:** Once in the queue, a customer's patience limit is drawn from a Weibull distribution; if wait times exceed this limit, they abandon the queue.
 
-## 🚀 Installation & Setup
+##  Installation & Setup
 
 1. **Clone the repository:**
    ```bash
@@ -38,6 +38,6 @@ The simulation was engineered using Python and the `simpy` framework. It utilize
    python bank_simulation.py
 
 
-## 📊 Demo & Output Visualizations
+##  Demo & Output Visualizations
 
 

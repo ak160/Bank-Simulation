@@ -39,5 +39,6 @@ The simulation was engineered using Python and the `simpy` framework. It utilize
 
 
 ##  Demo & Output Visualizations
+![Demo](Plots/demo.png)
 
 
